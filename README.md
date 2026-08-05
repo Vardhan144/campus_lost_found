@@ -69,35 +69,21 @@ npm start
 
 Make sure MongoDB is running and update the required environment variables before starting the application.
 
-## API Endpoints
+## API Overview
 
-### Authentication
+| Method | Endpoint                  | Description                       | Auth |
+|--------|----------------------------|------------------------------------|------|
+| POST   | `/api/auth/register`       | Create account                     | No   |
+| POST   | `/api/auth/login`          | Login, returns JWT                 | No   |
+| GET    | `/api/auth/me`              | Get current user                   | Yes  |
+| GET    | `/api/items`                | List items (filter/search/paginate)| No   |
+| GET    | `/api/items/:id`            | Get single item                    | No   |
+| POST   | `/api/items`                | Create item report (with image)    | Yes  |
+| PUT    | `/api/items/:id`            | Update item (owner/admin)          | Yes  |
+| PATCH  | `/api/items/:id/claim`      | Mark item as claimed                | Yes  |
+| DELETE | `/api/items/:id`            | Delete item (owner/admin)          | Yes  |
+| GET    | `/api/users/me/items`       | Items reported by current user     | Yes  |
 
-- POST `/api/auth/register`
-- POST `/api/auth/login`
-- GET `/api/auth/me`
-
-### Items
-
-- GET `/api/items`
-- GET `/api/items/:id`
-- POST `/api/items`
-- PUT `/api/items/:id`
-- PATCH `/api/items/:id/claim`
-- DELETE `/api/items/:id`
-
-### User
-
-- GET `/api/users/me/items`
-
-## Future Improvements
-
-- Email notifications
-- Admin panel
-- Chat between finder and owner
-- QR code support for reported items
-- Better search and filtering
-
-## Author
-
-Developed as a college project using the MERN stack.
+## Resume Bullet Points
+- Developed a full-stack MERN application for reporting, tracking and managing lost and found items within the campus.
+- Built secure JWT authentication, REST APIs, CRUD operations and responsive React interfaces with MongoDB integration.
