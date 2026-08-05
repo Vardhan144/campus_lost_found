@@ -1,78 +1,103 @@
 # Campus Lost & Found Portal
 
-A full-stack **MERN** (MongoDB, Express, React, Node.js) application for reporting,
-tracking, and managing lost and found items within a campus.
+A web application developed using the MERN stack to help students report and find lost items on campus. Users can post details of lost or found items, browse existing reports, and update the status once an item has been returned.
 
 ## Features
-- 🔐 Secure JWT-based authentication (register/login)
-- 📝 Report lost or found items with photo upload
-- 🔍 Browse/search/filter items by status, category, and keyword
-- ✅ Claim items and mark them resolved
-- 👤 Personal dashboard of items you've reported
-- 🌐 REST API with full CRUD operations
-- 📱 Responsive React front end
+
+- User registration and login
+- Report lost items
+- Report found items
+- Upload images while creating a report
+- Search and filter items
+- Update or delete your own reports
+- Mark an item as claimed
+- Personal dashboard for managing reports
 
 ## Tech Stack
-React.js • Node.js • Express.js • MongoDB (Mongoose) • JWT • Multer
 
-## Project Structure
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Multer (Image Upload)
+
+## Folder Structure
+
 ```
 campus-lost-found/
+│
 ├── backend/
-│   ├── models/          # User.js, Item.js (Mongoose schemas)
-│   ├── routes/          # authRoutes, itemRoutes, userRoutes
-│   ├── middleware/       # JWT auth middleware
-│   ├── uploads/          # Uploaded item images
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── uploads/
 │   ├── server.js
-│   ├── package.json
-│   └── .env.example
+│   └── package.json
+│
 └── frontend/
     ├── src/
-    │   ├── api/           # Axios instance with JWT interceptor
-    │   ├── components/     # Navbar, ItemCard, PrivateRoute
-    │   ├── context/        # AuthContext (global auth state)
-    │   ├── pages/          # Home, Login, Register, ReportItem, ItemDetail, Dashboard
-    │   ├── App.js / App.css
-    │   └── index.js
+    ├── public/
     ├── package.json
-    └── .env.example
+    └── ...
 ```
 
-## Setup & Run
+## Installation
 
-### 1. Backend
+### Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+### Backend
+
 ```bash
 cd backend
-cp .env.example .env      # then edit MONGO_URI / JWT_SECRET as needed
 npm install
-npm run dev                # starts on http://localhost:5000
+npm run dev
 ```
 
-### 2. Frontend
+### Frontend
+
 ```bash
 cd frontend
-cp .env.example .env
 npm install
-npm start                  # starts on http://localhost:3000
+npm start
 ```
 
-> Requires a running MongoDB instance (local or Atlas) — set `MONGO_URI` accordingly.
+Make sure MongoDB is running and update the required environment variables before starting the application.
 
-## API Overview
+## API Endpoints
 
-| Method | Endpoint                  | Description                       | Auth |
-|--------|----------------------------|------------------------------------|------|
-| POST   | `/api/auth/register`       | Create account                     | No   |
-| POST   | `/api/auth/login`          | Login, returns JWT                 | No   |
-| GET    | `/api/auth/me`              | Get current user                   | Yes  |
-| GET    | `/api/items`                | List items (filter/search/paginate)| No   |
-| GET    | `/api/items/:id`            | Get single item                    | No   |
-| POST   | `/api/items`                | Create item report (with image)    | Yes  |
-| PUT    | `/api/items/:id`            | Update item (owner/admin)          | Yes  |
-| PATCH  | `/api/items/:id/claim`      | Mark item as claimed                | Yes  |
-| DELETE | `/api/items/:id`            | Delete item (owner/admin)          | Yes  |
-| GET    | `/api/users/me/items`       | Items reported by current user     | Yes  |
+### Authentication
 
-## Resume Bullet Points
-- Developed a full-stack MERN application for reporting, tracking and managing lost and found items within the campus.
-- Built secure JWT authentication, REST APIs, CRUD operations and responsive React interfaces with MongoDB integration.
+- POST `/api/auth/register`
+- POST `/api/auth/login`
+- GET `/api/auth/me`
+
+### Items
+
+- GET `/api/items`
+- GET `/api/items/:id`
+- POST `/api/items`
+- PUT `/api/items/:id`
+- PATCH `/api/items/:id/claim`
+- DELETE `/api/items/:id`
+
+### User
+
+- GET `/api/users/me/items`
+
+## Future Improvements
+
+- Email notifications
+- Admin panel
+- Chat between finder and owner
+- QR code support for reported items
+- Better search and filtering
+
+## Author
+
+Developed as a college project using the MERN stack.
