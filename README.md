@@ -1,5 +1,4 @@
 # Campus Lost & Found Portal
-
 A web application developed using the MERN stack to help students report and find lost items on campus. Users can post details of lost or found items, browse existing reports, and update the status once an item has been returned.
 
 ## Features
