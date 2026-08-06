@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="brand">
-        🎒 Campus Lost & Found
+        🎒 CampusFind
       </Link>
       <div className="nav-links">
         <Link to="/">Browse</Link>
